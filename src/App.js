@@ -1,45 +1,33 @@
 import React from 'react'
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 function App() {
-    var person = {
-        name: "Raufu Prezens",
-        job: "Programmer"
-    }
-    var person2 = {
-        name: "Eftykhar Rahman",
-        job: "Software Engineer"
-    }
-    var style = {
-        color: 'lightblue',
-        backgroundColor: "yellow"
-    }
-    return ( <
-        div className = "App" >
-        <
-        header className = "App-header" >
-        <
-        img src = { logo }
-        className = "App-logo"
-        alt = "logo" / >
-        <
-        p >
-        Edit Done < code > src / App.js < /code> and save to reload. < /
-        p >
-        <
-        h1 className = ""
-        style = { style } > { person.name + " " + person.job } < /h1> <
-        h2 style = {
-            {
-                color: 'cyan',
-                backgroundColor: "tomato"
-            }
-        } > { person2.name + " " + person2.job } < /h2> <
-        p > My First React App < /p> < /
-        header > <
-        /div>
+const avengers = ['Captain America','Thor','Iron Man','Loki']
+    return (
+        <div className="App">
+            <header className="App-header">
+                <Person name="Raufu Prezens" job="Programmer"fav={avengers[0]}></Person>
+                <Person name="Eftykhar Rahman" job="Coder"></Person>
+                <Person name="iamraufu" job="Entrepreneur"></Person>
+            </header>
+        </div>
     );
 }
+
+function Person(props) {
+    const personStyle={
+        border: '2px solid cyan',
+        margin: '10px'
+    }
+    return (
+        <div style={personStyle}>
+            <h1>{props.name}</h1>
+            <h2>{props.job}</h2>
+            <h3>{props.fav}</h3>
+        </div>
+    )
+}
+
 
 export default App;
