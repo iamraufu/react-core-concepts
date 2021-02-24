@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import logo from './logo.svg';
 import './App.css';
 
@@ -14,6 +14,7 @@ const products = [
         <div className="App">
             <header className="App-header">
                 <Counter></Counter>
+                <User></User>
             {
                 avengers.map(heroes=><p>{heroes}</p>)
                 
@@ -76,10 +77,32 @@ function Counter() {
     return(
         <div>
             <h1>Count: {count}</h1>
-            <button onMouseMove={()=>setCount(count-1*59)}>Click to Decrease</button>
+            <button onMouseMove={()=>setCount(count-1)}>Click to Decrease</button>
             <button onClick={handleIncrease}>Click to Increase</button>
         </div>
     )
 }
+
+function User() {
+    const [users, setUsers] = useState([])
+
+    useEffect(()=>{
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(res=>res.json())
+        .then(data=>setUsers(data));
+    },[])
+    
+    return(
+    <div>
+        <h2>Dynamic Users: {users.length}</h2>
+        <div>
+            {
+                users.map(user=><h5>{user.name}</h5>)
+            }
+        </div>
+    </div>
+    )
+}
+    
 
 export default App;
