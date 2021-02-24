@@ -4,9 +4,17 @@ import './App.css';
 
 function App() {
 const avengers = ['Captain America','Thor','Iron Man','Loki']
+const products = [
+    {name:'Photoshop', price:'$90.99'},
+    {name:'Illustrator', price:'$60.99'},
+    {name:'PDF Reader', price:'$6.99'}
+]
     return (
         <div className="App">
             <header className="App-header">
+                <Product product={products[0]} price={products[0]}></Product>
+                <Product product={products[1]} price={products[1]}></Product>
+                <Product product={products[2]} price={products[2]}></Product>
                 <Person name="Raufu Prezens" job="Programmer"fav={avengers[0]}></Person>
                 <Person name="Eftykhar Rahman" job="Coder"></Person>
                 <Person name="iamraufu" job="Entrepreneur"></Person>
@@ -18,7 +26,8 @@ const avengers = ['Captain America','Thor','Iron Man','Loki']
 function Person(props) {
     const personStyle={
         border: '2px solid cyan',
-        margin: '10px'
+        margin: '10px',
+        width:'400px'
     }
     return (
         <div style={personStyle}>
@@ -29,5 +38,22 @@ function Person(props) {
     )
 }
 
+function Product(props) {
+    const productStyle = {
+        border:'1px solid gray',
+        borderRadius:'5px',
+        backgroundColor:'lightgray',
+        height:'200px',
+        width:'200px',
+        float:'left'
+    }
+    return (
+        <div style={productStyle}>
+            <h3>{props.product.name}</h3>
+            <h5>{props.product.price}</h5>
+            <button>Buy Now</button>
+        </div>
+    )
+}
 
 export default App;
