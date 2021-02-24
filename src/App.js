@@ -7,14 +7,26 @@ const avengers = ['Captain America','Thor','Iron Man','Loki']
 const products = [
     {name:'Photoshop', price:'$90.99'},
     {name:'Illustrator', price:'$60.99'},
-    {name:'PDF Reader', price:'$6.99'}
+    {name:'PDF Reader', price:'$6.99'},
+    {name:'Premiere Pro', price:'$299.99'}
 ]
     return (
         <div className="App">
             <header className="App-header">
-                <Product product={products[0]} price={products[0]}></Product>
+            {
+                avengers.map(heroes=><p>{heroes}</p>)
+                
+            }
+            {
+                products.map(pd=><p>{pd.name}</p>)
+            }
+            {
+                products.map(pd=><Product product={pd}></Product>)
+            }
+
+                {/* <Product product={products[0]} price={products[0]}></Product>
                 <Product product={products[1]} price={products[1]}></Product>
-                <Product product={products[2]} price={products[2]}></Product>
+                <Product product={products[2]} price={products[2]}></Product> */}
                 <Person name="Raufu Prezens" job="Programmer"fav={avengers[0]}></Person>
                 <Person name="Eftykhar Rahman" job="Coder"></Person>
                 <Person name="iamraufu" job="Entrepreneur"></Person>
